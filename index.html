@@ -1,3 +1,41 @@
-<h1>Gong Transcript Bookmarklet</h1>
-<p>Drag this button to your bookmarks bar. Then when you're on the Gong page showing the meeting transcript, click the button to copy the transcript to your clipboard in a plain text friendly format.</p>
-<a role="button" href="javascript:(function(){const monologues=document.querySelectorAll(&quot;.monologue-inner&quot;),transcriptElements=[];monologues.forEach((r=>{const e=r.querySelector(&quot;span.timestamp__speaker&quot;).innerText,o=r.querySelectorAll(&quot;span.word-wrapper&quot;),t=[];o.forEach((r=>{t.push(r.innerText)})),transcriptElements.push(`${e}: ${t.join(&quot;&quot;)}`)}));const transcript=transcriptElements.join(&quot;\n&quot;);console.log(transcript),navigator.clipboard.writeText(transcript).then((()=>{window.alert(&quot;Transcript copied to clipboard!&quot;)})).catch((r=>{window.alert(`Transcript could not be copied to clipboard, but is available in the browser console. Error: ${r}`)}));}());" class="button button-bookmarklet svelte-7bsmc8">Gong Transcript</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gong Transcript Bookmarklet</title>
+    <style>
+        body {
+            max-width: 600px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        a.button {
+            display: inline-block;
+            border: 1px solid rebeccapurple;
+            background-color: #eee5f8;
+            color: rebeccapurple;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+        a.button:hover {
+            box-shadow: 8px 8px rebeccapurple;
+        }
+        a {
+            color: rebeccapurple;
+            text-decoration: none;
+            border-bottom: 1px solid rebeccapurple;
+        }
+        a:hover {
+            border-bottom: 3px solid rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gong Transcript Bookmarklet</h1>
+    <p>Drag this button to your bookmarks bar. Then when you're on the Gong page showing the meeting transcript, click the button to copy the transcript to your clipboard in a plain text friendly format.</p>
+    <a class="button" role="button" href="javascript:(function(){const monologues=document.querySelectorAll(&quot;.monologue-inner&quot;),transcriptElements=[];monologues.forEach((r=>{const t=r.querySelector(&quot;span.timestamp__speaker&quot;).innerText,e=r.querySelectorAll(&quot;span.word-wrapper&quot;),o=[];e.forEach((r=>{o.push(r.innerText)})),transcriptElements.push(`${t}: ${o.join(&quot;&quot;)}`)}));const transcript=transcriptElements.join(&quot;\n&quot;);console.log(transcript),transcript&amp;&amp;&quot;&quot;!==transcript?navigator.clipboard.writeText(transcript).then((()=>{window.alert(&quot;Transcript copied to clipboard!&quot;)})).catch((r=>{window.alert(`Transcript could not be copied to clipboard, but is available in the browser console. Error: ${r}`)})):window.alert(&quot;Oops, no transcript found. Make sure you're on the call page showing the transcript.&quot;);}());" class="button button-bookmarklet svelte-7bsmc8">Gong Transcript</a>
+    <p><small>Made with 💜 by <a href="https://sia.codes">Sia</a>.</small></p>
+</body>
+</html>
